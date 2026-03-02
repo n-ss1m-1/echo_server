@@ -7,11 +7,11 @@
 #include<unordered_map>
 
 #include "Callbacks.h"
-#include "noncopyable"
+#include "noncopyable.h"
 #include "EventLoop.h"
 #include "Channel.h"
 #include "Acceptor.h"
-#include "EventLoopThreadPool"
+#include "EventLoopThreadPool.h"
 #include "TcpConnection.h"
 #include "Buffer.h"
 
@@ -32,7 +32,7 @@ public:
 
 	void setThreadInitCallback(const ThreadInitCallback& cb) {threadInitCallback_=cb;}	
 	void setConnectionCallback(const ConnectionCallback& cb) {connectionCallback_=cb;}	
-	void setMessageCallback(const messageCallback& cb) {messageCallback_=cb;}	
+	void setMessageCallback(const MessageCallback& cb) {messageCallback_=cb;}	
 	void setWriteCompleteCallback(const WriteCompleteCallback& cb) {writeCompleteCallback_=cb;}	
 
 	void setThreadNum(int numThreads);

@@ -18,11 +18,14 @@ TcpServer::TcpServer(EventLoop* loop,const InetAddress& listenAddr,const std::st
 	ipPort_(listenAddr.toIpPort()),
 	name_(nameArg),
 	acceptor_(new Acceptor(loop,listenAddr,option==KReusePort)),
-	threadPool_(new EventLoopThreadPoll(loop,nameArg)),
+	threadPool_(new EventLoopThreadPool(loop,nameArg)),
+	threadInitCallback_(),
 	connectionCallback_(),
-	messageCallback(),
+	messageCallback_(),
+	writeCompleteCallback_(),
+	started_(0),
 	nextConnId_(1),
-	started_(0)
+	connections_()
 {
 	acceptor_->setNewConnectionCallback(std::bind(&TcpServer::newConnection,this,std::placeholders::_1,std::placeholders::_2));
 }
@@ -45,9 +48,9 @@ void TcpServer::setThreadNum(int numThreads)
 
 void TcpServer::start()
 {
-	if(started.fetch_add(1)==0)
+	if(started_.fetch_add(1)==0)
 	{
-		threadPool->start(threadInitCallback_);
+		threadPool_->start(threadInitCallback_);
 		loop_->runInLoop(std::bind(&Acceptor::listen,acceptor_.get()));
 	}
 }
@@ -73,7 +76,7 @@ void TcpServer::newConnection(int sockfd, const InetAddress& peerAddr)
 	{
 		//log
 	}
-	InetAddr localAddr(local);
+	InetAddress localAddr(local);
 
 	//创建TcpConnection对象
 	TcpConnectionPtr conn(new TcpConnection(ioLoop,connName,sockfd,localAddr,peerAddr));
