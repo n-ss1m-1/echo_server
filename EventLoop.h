@@ -30,7 +30,7 @@ public:
 	using Functor = std::function<void()>;		//只处理无参无返回值的任务
 	void runInLoop(Functor cb);			//执行/加入任务队列
 	void queueInLoop(Functor cb);			//加入任务队列
-	bool isInLoopThread(){return true;}		//判断是否对应loop-thread
+	bool isInLoopThread(){return threadId_ == CurrentThread::tid();}		//判断是否对应loop-thread
 
 	//wakeup唤醒机制
 	void wakeup();					//写入1字节 解除poller阻塞
