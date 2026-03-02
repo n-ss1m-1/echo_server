@@ -1,5 +1,6 @@
 #include<functional>
 #include<string>
+#include<cstring>
 #include<errno.h>
 #include<sys/types.h>		//系统类型定义
 #include<sys/socket.h>		//socket API
@@ -33,7 +34,7 @@ TcpConnection::TcpConnection(EventLoop* loop,const std::string& nameArg,int sock
 	 peerAddr_(peerAddr),
 	 highWaterMark_(64*1024*1024)	//64M
 {
-	channel_->setReadCallback(std::bind(&TcpConnection::handleRead,this,std::placeholeder::_1));
+	channel_->setReadCallback(std::bind(&TcpConnection::handleRead,this,std::placeholeders::_1));
 	channel_->setWriteCallback(std::bind(&TcpConnection::handleWrite,this));
 	channel_->setErrorCallback(std::bind(&TcpConnection::handleError,this));
 	channel_->setCloseCallback(std::bind(&TcpConnection::handleClose,this));
@@ -67,7 +68,7 @@ void TcpConnection::connectDestroyed()
 void TcpConnection::handleRead(std::chrono::steady_clock::time_point receiveTime)
 {
 	int saveErrno=0;
-	ssize_t n = inputBuffer.readFd(channel_->fd(),&saveErrno);
+	ssize_t n = inputBuffer_.readFd(channel_->fd(),&saveErrno);
 	
 	if(n>0)
 	{
@@ -87,7 +88,7 @@ void TcpConnection::handleRead(std::chrono::steady_clock::time_point receiveTime
 void TcpConnection::handleClose()
 {
 	//log
-	SetState(KDisConnected);
+	setState(KDisconnected);
 	channel_->disableAll();
 	
 	TcpConnectionPtr connPtr(shared_from_this());
@@ -100,7 +101,7 @@ void TcpConnection::handleError()
 	socklen_t optlen=sizeof(optval);
 	int err=0;
 
-	if(::getsockopt(channel->fd(),SOL_SOCKET,SO_ERROR,&optval,&optlen)<0)
+	if(::getsockopt(channel_->fd(),SOL_SOCKET,SO_ERROR,&optval,&optlen)<0)
 	{
 		err=errno;	//查询失败 查询失败的原因保存在errno中
 	}
@@ -120,7 +121,7 @@ void TcpConnection::handleWrite()
 		if(n>0)
 		{
 			outputBuffer_.retrieve(n);
-			if(outputBuffer.readableBytes()==0)
+			if(outputBuffer_.readableBytes()==0)
 			{
 				channel_->disableWriting();
 				if(writeCompleteCallback_)
@@ -140,7 +141,7 @@ void TcpConnection::handleWrite()
 		
 		}	
 	}
-	eise
+	else
 	{
 		//log
 
@@ -168,7 +169,7 @@ void TcpConnection::sendInLoop(const void* data,size_t len)
 
 	if(!channel_->isWriting() && outputBuffer_.readableBytes()==0)
 	{
-		nwrote = ::write(channe_->fd(),data,len);
+		nwrote = ::write(channel_->fd(),data,len);
 		if(nwrote>=0)
 		{
 			remaining = len-nwrote;

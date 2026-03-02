@@ -5,11 +5,14 @@
 class InetAddress;
 
 
-class Socket
+class Socket : noncopyable
 {
 public:
-	explicit Socket(const int sockfd);
-	~Socket();
+	explicit Socket(const int sockfd):sockfd_(sockfd){}
+	~Socket()
+	{
+		::close(sockfd_);
+	}
 
 	int fd() const {return sockfd_;}
 	void bindAddress(const InetAddress& localAddr);

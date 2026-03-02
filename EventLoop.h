@@ -9,6 +9,7 @@
 
 #include "noncopyable.h"
 #include "Channel.h"
+#include "CurrentThread.h"
 class Channel;
 class Poller;
 

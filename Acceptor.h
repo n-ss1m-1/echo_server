@@ -6,9 +6,7 @@
 #include "Channel.h"
 
 class EventLoop;
-class Channel;
 class InetAddress;
-class Socket;
 
 
 class Acceptor : private noncopyable

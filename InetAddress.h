@@ -20,7 +20,7 @@ public:
 	uint16_t toPort() const;
 
 	//获取/设置 addr_
-	const sockaddr_in getSockAddr() const {return addr_;}
+	const sockaddr_in* getSockAddr() const {return &addr_;}
 	void setSockAddr(const sockaddr_in& addr) {addr_=addr;}
 
 private:

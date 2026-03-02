@@ -1,13 +1,10 @@
 #include<unistd.h>
 #include<sys/socket.h>
-//#include<sys/types.h>
+#include<sys/types.h>
 #include<errno.h>
 
-
 #include "Acceptor.h"
-#include "Channel.h"
-#include "Socket.h"
-
+#include "InetAddress.h"
 
 static int createNonblocking()
 {

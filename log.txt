@@ -1,0 +1,455 @@
+=== Building Echo Server Test ===
+echo_server_test.cc:5:10: fatal error: Logger.h: No such file or directory
+    5 | #include "Logger.h"
+      |          ^~~~~~~~~~
+compilation terminated.
+In file included from /usr/include/c++/14/memory:63,
+                 from Channel.h:4,
+                 from Acceptor.h:6,
+                 from Acceptor.cc:7:
+/usr/include/c++/14/bits/memoryfwd.h:50:1: error: expected initializer before 'namespace'
+   50 | namespace std _GLIBCXX_VISIBILITY(default)
+      | ^~~~~~~~~
+In file included from /usr/include/c++/14/memory:65:
+/usr/include/c++/14/bits/allocator.h:73:11: error: 'allocator' is not a class template
+   73 |     class allocator<void>
+      |           ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:74:5: error: explicit specialization of non-template 'std::allocator'
+   74 |     {
+      |     ^
+/usr/include/c++/14/bits/allocator.h:87:19: error: 'std::allocator' is not a template
+   87 |         { typedef allocator<_Tp1> other; };
+      |                   ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:128:11: error: 'std::allocator' is not a template
+  128 |     class allocator : public __allocator_base<_Tp>
+      |           ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:73:11: note: previous declaration here
+   73 |     class allocator<void>
+      |           ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:235:22: error: 'std::allocator' is not a template
+  235 |     operator==(const allocator<_T1>&, const allocator<_T2>&)
+      |                      ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:235:45: error: 'std::allocator' is not a template
+  235 |     operator==(const allocator<_T1>&, const allocator<_T2>&)
+      |                                             ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:243:22: error: 'std::allocator' is not a template
+  243 |     operator!=(const allocator<_T1>&, const allocator<_T2>&)
+      |                      ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:243:45: error: 'std::allocator' is not a template
+  243 |     operator!=(const allocator<_T1>&, const allocator<_T2>&)
+      |                                             ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:253:11: error: 'allocator' is not a class template
+  253 |     class allocator<const _Tp>
+      |           ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:253:30: error: 'std::allocator' is not a template
+  253 |     class allocator<const _Tp>
+      |                              ^
+/usr/include/c++/14/bits/allocator.h:73:11: note: previous declaration here
+   73 |     class allocator<void>
+      |           ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:262:11: error: 'allocator' is not a class template
+  262 |     class allocator<volatile _Tp>
+      |           ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:262:33: error: 'std::allocator' is not a template
+  262 |     class allocator<volatile _Tp>
+      |                                 ^
+/usr/include/c++/14/bits/allocator.h:73:11: note: previous declaration here
+   73 |     class allocator<void>
+      |           ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:271:11: error: 'allocator' is not a class template
+  271 |     class allocator<const volatile _Tp>
+      |           ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:271:39: error: 'std::allocator' is not a template
+  271 |     class allocator<const volatile _Tp>
+      |                                       ^
+/usr/include/c++/14/bits/allocator.h:73:11: note: previous declaration here
+   73 |     class allocator<void>
+      |           ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:285:25: error: 'allocator' is not a class template
+  285 |   extern template class allocator<char>;
+      |                         ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:285:25: error: explicit instantiation of non-template type 'std::allocator'
+/usr/include/c++/14/bits/allocator.h:286:25: error: 'allocator' is not a class template
+  286 |   extern template class allocator<wchar_t>;
+      |                         ^~~~~~~~~
+/usr/include/c++/14/bits/allocator.h:286:25: error: explicit instantiation of non-template type 'std::allocator'
+In file included from /usr/include/c++/14/ext/alloc_traits.h:34,
+                 from /usr/include/c++/14/bits/stl_uninitialized.h:64,
+                 from /usr/include/c++/14/memory:69:
+/usr/include/c++/14/bits/alloc_traits.h:461:29: error: 'std::allocator' is not a template
+  461 |     struct allocator_traits<allocator<_Tp>>
+      |                             ^~~~~~~~~
+/usr/include/c++/14/bits/alloc_traits.h:461:12: error: template parameters not deducible in partial specialization:
+  461 |     struct allocator_traits<allocator<_Tp>>
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/alloc_traits.h:461:12: note:         '_Tp'
+/usr/include/c++/14/bits/alloc_traits.h:638:29: error: 'std::allocator' is not a template
+  638 |     struct allocator_traits<allocator<void>>
+      |                             ^~~~~~~~~
+/usr/include/c++/14/bits/alloc_traits.h:641:30: error: 'std::allocator' is not a template
+  641 |       using allocator_type = allocator<void>;
+      |                              ^~~~~~~~~
+/usr/include/c++/14/bits/alloc_traits.h:677:30: error: 'std::allocator' is not a template
+  677 |         using rebind_alloc = allocator<_Up>;
+      |                              ^~~~~~~~~
+/usr/include/c++/14/bits/alloc_traits.h:680:48: error: 'std::allocator' is not a template
+  680 |         using rebind_traits = allocator_traits<allocator<_Up>>;
+      |                                                ^~~~~~~~~
+/usr/include/c++/14/bits/alloc_traits.h:866:33: error: 'std::allocator' is not a template
+  866 |     struct __is_copy_insertable<allocator<_Tp>>
+      |                                 ^~~~~~~~~
+/usr/include/c++/14/bits/alloc_traits.h:866:12: error: template parameters not deducible in partial specialization:
+  866 |     struct __is_copy_insertable<allocator<_Tp>>
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/alloc_traits.h:866:12: note:         '_Tp'
+/usr/include/c++/14/bits/alloc_traits.h:882:33: error: 'std::allocator' is not a template
+  882 |     struct __is_move_insertable<allocator<_Tp>>
+      |                                 ^~~~~~~~~
+/usr/include/c++/14/bits/alloc_traits.h:882:12: error: template parameters not deducible in partial specialization:
+  882 |     struct __is_move_insertable<allocator<_Tp>>
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/alloc_traits.h:882:12: note:         '_Tp'
+/usr/include/c++/14/bits/alloc_traits.h:991:14: error: 'std::allocator' is not a template
+  991 |              allocator<_Tp>&)
+      |              ^~~~~~~~~
+/usr/include/c++/14/bits/stl_uninitialized.h:367:55: error: 'std::allocator' is not a template
+  367 |                            _ForwardIterator __result, allocator<_Tp>&)
+      |                                                       ^~~~~~~~~
+/usr/include/c++/14/bits/stl_uninitialized.h:428:44: error: 'std::allocator' is not a template
+  428 |                            const _Tp& __x, allocator<_Tp2>&)
+      |                                            ^~~~~~~~~
+/usr/include/c++/14/bits/stl_uninitialized.h:466:46: error: 'std::allocator' is not a template
+  466 |                              const _Tp& __x, allocator<_Tp2>&)
+      |                                              ^~~~~~~~~
+/usr/include/c++/14/bits/stl_uninitialized.h:744:31: error: 'std::allocator' is not a template
+  744 |                               allocator<_Tp>&)
+      |                               ^~~~~~~~~
+/usr/include/c++/14/bits/stl_uninitialized.h:778:33: error: 'std::allocator' is not a template
+  778 |                                 allocator<_Tp>&)
+      |                                 ^~~~~~~~~
+/usr/include/c++/14/bits/stl_uninitialized.h:1114:41: error: 'std::allocator' is not a template
+ 1114 |                    [[__maybe_unused__]] allocator<_Up>& __alloc) noexcept
+      |                                         ^~~~~~~~~
+In file included from /usr/include/c++/14/iosfwd:41,
+                 from /usr/include/c++/14/bits/shared_ptr.h:52,
+                 from /usr/include/c++/14/memory:80:
+/usr/include/c++/14/bits/stringfwd.h:71:30: error: 'std::allocator' is not a template
+   71 |            typename _Alloc = allocator<_CharT> >
+      |                              ^~~~~~~~~
+/usr/include/c++/14/iosfwd:97:31: error: 'std::allocator' is not a template
+   97 |             typename _Alloc = allocator<_CharT> >
+      |                               ^~~~~~~~~
+/usr/include/c++/14/iosfwd:101:30: error: 'std::allocator' is not a template
+  101 |            typename _Alloc = allocator<_CharT> >
+      |                              ^~~~~~~~~
+/usr/include/c++/14/iosfwd:105:30: error: 'std::allocator' is not a template
+  105 |            typename _Alloc = allocator<_CharT> >
+      |                              ^~~~~~~~~
+/usr/include/c++/14/iosfwd:109:30: error: 'std::allocator' is not a template
+  109 |            typename _Alloc = allocator<_CharT> >
+      |                              ^~~~~~~~~
+In file included from /usr/include/c++/14/bits/shared_ptr.h:53:
+/usr/include/c++/14/bits/shared_ptr_base.h: In constructor 'std::__shared_count<_Lp>::__shared_count(_Ptr, std::true_type)':
+/usr/include/c++/14/bits/shared_ptr_base.h:931:52: error: 'std::allocator' is not a template
+  931 |         : __shared_count(__p, __sp_array_delete{}, allocator<void>())
+      |                                                    ^~~~~~~~~
+/usr/include/c++/14/bits/shared_ptr_base.h: In constructor 'std::__shared_count<_Lp>::__shared_count(_Ptr, _Deleter)':
+/usr/include/c++/14/bits/shared_ptr_base.h:937:47: error: 'std::allocator' is not a template
+  937 |         : __shared_count(__p, std::move(__d), allocator<void>())
+      |                                               ^~~~~~~~~
+/usr/include/c++/14/bits/shared_ptr_base.h: In constructor 'std::__shared_count<_Lp>::__shared_count(std::unique_ptr<_Up, _Ep>&&)':
+/usr/include/c++/14/bits/shared_ptr_base.h:1046:48: error: 'std::allocator' is not a template
+ 1046 |             = _Sp_counted_deleter<_Ptr, _Del2, allocator<void>, _Lp>;
+      |                                                ^~~~~~~~~
+/usr/include/c++/14/bits/shared_ptr_base.h:1047:26: error: 'std::allocator' is not a template
+ 1047 |           using _Alloc = allocator<_Sp_cd_type>;
+      |                          ^~~~~~~~~
+/usr/include/c++/14/bits/shared_ptr_base.h:1050:55: error: use of deleted function 'static void* std::allocator_traits<std::allocator>::allocate(allocator_type&, size_type, const void*)'
+ 1050 |           _Sp_cd_type* __mem = _Alloc_traits::allocate(__a, 1);
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/usr/include/c++/14/bits/alloc_traits.h:684:7: note: declared here
+  684 |       allocate(allocator_type&, size_type, const void* = nullptr) = delete;
+      |       ^~~~~~~~
+/usr/include/c++/14/bits/shared_ptr_base.h: In function 'std::__shared_ptr<_Tp, _Lp> std::__make_shared(_Args&& ...)':
+/usr/include/c++/14/bits/shared_ptr_base.h:2242:47: error: 'std::allocator' is not a template
+ 2242 |       return std::__allocate_shared<_Tp, _Lp>(std::allocator<_Tp_nc>(),
+      |                                               ^~~
+/usr/include/c++/14/bits/shared_ptr.h: In function 'std::shared_ptr<typename std::enable_if<(! std::is_array<_Tp>::value), _Tp>::type> std::make_shared(_Args&& ...)':
+/usr/include/c++/14/bits/shared_ptr.h:1005:22: error: 'std::allocator' is not a template
+ 1005 |       using _Alloc = allocator<void>;
+      |                      ^~~~~~~~~
+Acceptor.cc: In function 'int createNonblocking()':
+Acceptor.cc:14:80: error: 'IPPROTO_TCP' was not declared in this scope
+   14 |         int sockfd = ::socket(AF_INET, SOCK_STREAM|SOCK_NONBLOCK|SOCK_CLOEXEC, IPPROTO_TCP);
+      |                                                                                ^~~~~~~~~~~
+Acceptor.cc: In constructor 'Acceptor::Acceptor(EventLoop*, const InetAddress&, bool)':
+Acceptor.cc:22:73: warning: unused parameter 'reusePort' [-Wunused-parameter]
+   22 | Acceptor::Acceptor(EventLoop* loop, const InetAddress& listenAddr, bool reusePort):
+      |                                                                    ~~~~~^~~~~~~~~
+Acceptor.cc: In member function 'void Acceptor::handleRead()':
+Acceptor.cc:48:21: error: aggregate 'InetAddress peerAddr' has incomplete type and cannot be defined
+   48 |         InetAddress peerAddr;
+      |                     ^~~~~~~~
+EPollPoller.cc: In member function 'virtual std::chrono::_V2::steady_clock::time_point EPollPoller::poll(int, Poller::ChannelList*)':
+EPollPoller.cc:40:30: warning: comparison of integer expressions of different signedness: 'int' and 'std::vector<epoll_event>::size_type' {aka 'long unsigned int'} [-Wsign-compare]
+   40 |                 if(numEvents == revents_.size()) revents_.resize(2 * revents_.size());
+      |                    ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+EventLoop.cc: In member function 'void EventLoop::wakeup()':
+EventLoop.cc:122:13: warning: comparison of integer expressions of different signedness: 'ssize_t' {aka 'long int'} and 'long unsigned int' [-Wsign-compare]
+  122 |         if(n<sizeof(one))
+      |            ~^~~~~~~~~~~~
+EventLoop.cc: In member function 'void EventLoop::handleRead()':
+EventLoop.cc:133:13: warning: comparison of integer expressions of different signedness: 'ssize_t' {aka 'long int'} and 'long unsigned int' [-Wsign-compare]
+  133 |         if(n<sizeof(one))
+      |            ~^~~~~~~~~~~~
+EventLoopThreadPool.cc:5:10: fatal error: Logger.h: No such file or directory
+    5 | #include <Logger.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+TcpConnection.cc:16:1: error: expected initializer before 'static'
+   16 | static EventLoop* CheckLoopNotNull(EventLoop* loop)
+      | ^~~~~~
+TcpConnection.cc: In constructor 'TcpConnection::TcpConnection(EventLoop*, const std::string&, int, const InetAddress&, const InetAddress&)':
+TcpConnection.cc:36:82: error: 'std::placeholeder' has not been declared
+   36 |         channel_->setReadCallback(std::bind(&TcpConnection::handleRead,this,std::placeholeder::_1));
+      |                                                                                  ^~~~~~~~~~~~
+TcpConnection.cc: In member function 'void TcpConnection::connectEstablished()':
+TcpConnection.cc:55:28: error: no match for call to '(ConnectionCallback {aka std::function<void(const TcpConnection&)>}) (std::shared_ptr<TcpConnection>)'
+   55 |         connectionCallback_(shared_from_this());
+      |         ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/14/functional:59,
+                 from TcpConnection.cc:1:
+/usr/include/c++/14/bits/std_function.h:587:7: note: candidate: '_Res std::function<_Res(_ArgTypes ...)>::operator()(_ArgTypes ...) const [with _Res = void; _ArgTypes = {const TcpConnection&}]'
+  587 |       operator()(_ArgTypes... __args) const
+      |       ^~~~~~~~
+/usr/include/c++/14/bits/std_function.h:587:27: note:   no known conversion for argument 1 from 'std::shared_ptr<TcpConnection>' to 'const TcpConnection&'
+  587 |       operator()(_ArgTypes... __args) const
+      |                  ~~~~~~~~~^~~~~~~~~~
+TcpConnection.cc: In member function 'void TcpConnection::connectDestroyed()':
+TcpConnection.cc:63:36: error: no match for call to '(ConnectionCallback {aka std::function<void(const TcpConnection&)>}) (std::shared_ptr<TcpConnection>)'
+   63 |                 connectionCallback_(shared_from_this());
+      |                 ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/std_function.h:587:7: note: candidate: '_Res std::function<_Res(_ArgTypes ...)>::operator()(_ArgTypes ...) const [with _Res = void; _ArgTypes = {const TcpConnection&}]'
+  587 |       operator()(_ArgTypes... __args) const
+      |       ^~~~~~~~
+/usr/include/c++/14/bits/std_function.h:587:27: note:   no known conversion for argument 1 from 'std::shared_ptr<TcpConnection>' to 'const TcpConnection&'
+  587 |       operator()(_ArgTypes... __args) const
+      |                  ~~~~~~~~~^~~~~~~~~~
+TcpConnection.cc: In member function 'void TcpConnection::handleRead(std::chrono::_V2::steady_clock::time_point)':
+TcpConnection.cc:70:21: error: 'inputBuffer' was not declared in this scope; did you mean 'inputBuffer_'?
+   70 |         ssize_t n = inputBuffer.readFd(channel_->fd(),&saveErrno);
+      |                     ^~~~~~~~~~~
+      |                     inputBuffer_
+TcpConnection.cc: In member function 'void TcpConnection::handleClose()':
+TcpConnection.cc:90:18: error: 'KDisConnected' was not declared in this scope; did you mean 'KDisconnected'?
+   90 |         SetState(KDisConnected);
+      |                  ^~~~~~~~~~~~~
+      |                  KDisconnected
+TcpConnection.cc:90:9: error: 'SetState' was not declared in this scope; did you mean 'setState'?
+   90 |         SetState(KDisConnected);
+      |         ^~~~~~~~
+      |         setState
+TcpConnection.cc:94:28: error: no match for call to '(ConnectionCallback {aka std::function<void(const TcpConnection&)>}) (TcpConnectionPtr&)'
+   94 |         connectionCallback_(connPtr);
+      |         ~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+/usr/include/c++/14/bits/std_function.h:587:7: note: candidate: '_Res std::function<_Res(_ArgTypes ...)>::operator()(_ArgTypes ...) const [with _Res = void; _ArgTypes = {const TcpConnection&}]'
+  587 |       operator()(_ArgTypes... __args) const
+      |       ^~~~~~~~
+/usr/include/c++/14/bits/std_function.h:587:27: note:   no known conversion for argument 1 from 'TcpConnectionPtr' {aka 'std::shared_ptr<TcpConnection>'} to 'const TcpConnection&'
+  587 |       operator()(_ArgTypes... __args) const
+      |                  ~~~~~~~~~^~~~~~~~~~
+TcpConnection.cc:95:23: error: no match for call to '(CloseCallback {aka std::function<void(const TcpConnection&)>}) (TcpConnectionPtr&)'
+   95 |         closeCallback_(connPtr);
+      |         ~~~~~~~~~~~~~~^~~~~~~~~
+/usr/include/c++/14/bits/std_function.h:587:7: note: candidate: '_Res std::function<_Res(_ArgTypes ...)>::operator()(_ArgTypes ...) const [with _Res = void; _ArgTypes = {const TcpConnection&}]'
+  587 |       operator()(_ArgTypes... __args) const
+      |       ^~~~~~~~
+/usr/include/c++/14/bits/std_function.h:587:27: note:   no known conversion for argument 1 from 'TcpConnectionPtr' {aka 'std::shared_ptr<TcpConnection>'} to 'const TcpConnection&'
+  587 |       operator()(_ArgTypes... __args) const
+      |                  ~~~~~~~~~^~~~~~~~~~
+TcpConnection.cc: In member function 'void TcpConnection::handleError()':
+TcpConnection.cc:103:25: error: 'channel' was not declared in this scope; did you mean 'Channel'?
+  103 |         if(::getsockopt(channel->fd(),SOL_SOCKET,SO_ERROR,&optval,&optlen)<0)
+      |                         ^~~~~~~
+      |                         Channel
+TcpConnection.cc: In member function 'void TcpConnection::handleWrite()':
+TcpConnection.cc:123:28: error: 'outputBuffer' was not declared in this scope; did you mean 'outputBuffer_'?
+  123 |                         if(outputBuffer.readableBytes()==0)
+      |                            ^~~~~~~~~~~~
+      |                            outputBuffer_
+TcpConnection.cc:128:69: error: cannot convert 'std::_Bind_helper<false, std::function<void(const TcpConnection&)>*, std::shared_ptr<TcpConnection> >::type' to 'EventLoop::Functor' {aka 'std::function<void()>'}
+  128 |                                         loop_->queueInLoop(std::bind(&writeCompleteCallback_,shared_from_this()));
+      |                                                            ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                     |
+      |                                                                     std::_Bind_helper<false, std::function<void(const TcpConnection&)>*, std::shared_ptr<TcpConnection> >::type
+In file included from TcpConnection.cc:12:
+EventLoop.h:33:34: note:   initializing argument 1 of 'void EventLoop::queueInLoop(Functor)'
+   33 |         void queueInLoop(Functor cb);                   //加入任务队列
+      |                          ~~~~~~~~^~
+TcpConnection.cc:143:9: error: 'eise' was not declared in this scope
+  143 |         eise
+      |         ^~~~
+TcpConnection.cc: In member function 'void TcpConnection::sendInLoop(const void*, size_t)':
+TcpConnection.cc:171:34: error: 'channe_' was not declared in this scope; did you mean 'channel_'?
+  171 |                 nwrote = ::write(channe_->fd(),data,len);
+      |                                  ^~~~~~~
+      |                                  channel_
+TcpConnection.cc:177:61: error: cannot convert 'std::_Bind_helper<false, std::function<void(const TcpConnection&)>&, std::shared_ptr<TcpConnection> >::type' to 'EventLoop::Functor' {aka 'std::function<void()>'}
+  177 |                                 loop_->queueInLoop(std::bind(writeCompleteCallback_,shared_from_this()));
+      |                                                    ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                             |
+      |                                                             std::_Bind_helper<false, std::function<void(const TcpConnection&)>&, std::shared_ptr<TcpConnection> >::type
+EventLoop.h:33:34: note:   initializing argument 1 of 'void EventLoop::queueInLoop(Functor)'
+   33 |         void queueInLoop(Functor cb);                   //加入任务队列
+      |                          ~~~~~~~~^~
+TcpConnection.cc:199:53: error: cannot convert 'std::_Bind_helper<false, std::function<void(const TcpConnection&, long unsigned int)>&, std::shared_ptr<TcpConnection>, long unsigned int>::type' to 'EventLoop::Functor' {aka 'std::function<void()>'}
+  199 |                         loop_->queueInLoop(std::bind(highWaterMarkCallback_,shared_from_this(),oldLen+remaining));
+      |                                            ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                     |
+      |                                                     std::_Bind_helper<false, std::function<void(const TcpConnection&, long unsigned int)>&, std::shared_ptr<TcpConnection>, long unsigned int>::type
+EventLoop.h:33:34: note:   initializing argument 1 of 'void EventLoop::queueInLoop(Functor)'
+   33 |         void queueInLoop(Functor cb);                   //加入任务队列
+      |                          ~~~~~~~~^~
+TcpConnection.cc: In member function 'void TcpConnection::sendFile(int, off_t, size_t)':
+TcpConnection.cc:209:34: warning: unused parameter 'fileDescripto' [-Wunused-parameter]
+  209 | void TcpConnection::sendFile(int fileDescripto,off_t offset,size_t count)
+      |                              ~~~~^~~~~~~~~~~~~
+TcpConnection.cc:209:54: warning: unused parameter 'offset' [-Wunused-parameter]
+  209 | void TcpConnection::sendFile(int fileDescripto,off_t offset,size_t count)
+      |                                                ~~~~~~^~~~~~
+TcpConnection.cc:209:68: warning: unused parameter 'count' [-Wunused-parameter]
+  209 | void TcpConnection::sendFile(int fileDescripto,off_t offset,size_t count)
+      |                                                             ~~~~~~~^~~~~
+TcpConnection.cc: In member function 'void TcpConnection::sendFileInLoop(int, off_t, size_t)':
+TcpConnection.cc:213:40: warning: unused parameter 'fileDescripto' [-Wunused-parameter]
+  213 | void TcpConnection::sendFileInLoop(int fileDescripto,off_t offset,size_t count)
+      |                                    ~~~~^~~~~~~~~~~~~
+TcpConnection.cc:213:60: warning: unused parameter 'offset' [-Wunused-parameter]
+  213 | void TcpConnection::sendFileInLoop(int fileDescripto,off_t offset,size_t count)
+      |                                                      ~~~~~~^~~~~~
+TcpConnection.cc:213:74: warning: unused parameter 'count' [-Wunused-parameter]
+  213 | void TcpConnection::sendFileInLoop(int fileDescripto,off_t offset,size_t count)
+      |                                                                   ~~~~~~~^~~~~
+In file included from TcpServer.h:13,
+                 from TcpServer.cc:4:
+Acceptor.h:8:1: error: expected initializer before 'class'
+    8 | class EventLoop;
+      | ^~~~~
+TcpServer.cc: In member function 'void TcpServer::newConnection(int, const InetAddress&)':
+TcpServer.cc:91:41: error: cannot convert 'std::_Bind_helper<false, void (TcpServer::*)(const std::shared_ptr<TcpConnection>&), TcpServer*, const std::_Placeholder<1>&>::type' to 'const CloseCallback&' {aka 'const std::function<void(const TcpConnection&)>&'}
+   91 |         conn->setCloseCallback(std::bind(&TcpServer::removeConnection,this,std::placeholders::_1));
+      |                                ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                         |
+      |                                         std::_Bind_helper<false, void (TcpServer::*)(const std::shared_ptr<TcpConnection>&), TcpServer*, const std::_Placeholder<1>&>::type
+In file included from TcpServer.h:15:
+TcpConnection.h:34:52: note:   initializing argument 1 of 'void TcpConnection::setCloseCallback(const CloseCallback&)'
+   34 |         void setCloseCallback(const CloseCallback& cb){closeCallback_=cb;}
+      |                               ~~~~~~~~~~~~~~~~~~~~~^~
+Buffer.cc: In member function 'ssize_t Buffer::readFd(int, int*)':
+Buffer.cc:29:18: warning: comparison of integer expressions of different signedness: 'const ssize_t' {aka 'const long int'} and 'const size_t' {aka 'const long unsigned int'} [-Wsign-compare]
+   29 |         else if(n<writable)     writerIndex_ += n;
+      |                 ~^~~~~~~~~
+InetAddress.cc: In constructor 'InetAddress::InetAddress(uint16_t, std::string)':
+InetAddress.cc:12:43: error: 'addr' was not declared in this scope; did you mean 'addr_'?
+   12 |         ::inet_pton(AF_INET, ip.c_str(), &addr.sin_addr.s_addr);
+      |                                           ^~~~
+      |                                           addr_
+InetAddress.cc: In member function 'std::string InetAddress::toIpPort() const':
+InetAddress.cc:30:58: error: request for member 'c_str' in 'buf', which is of non-class type 'char [64]'
+   30 |         ::inet_ntop(AF_INET, &addr_.sin_addr.s_addr, buf.c_str(), sizeof(buf));
+      |                                                          ^~~~~
+In file included from /usr/include/features.h:503,
+                 from /usr/include/unistd.h:25,
+                 from Socket.cc:1:
+/usr/include/netinet/in.h:27:1: error: expected initializer before 'extern'
+   27 | __BEGIN_DECLS
+      | ^~~~~~~~~~~~~
+In file included from InetAddress.h:3,
+                 from Socket.cc:9:
+/usr/include/arpa/inet.h:34:8: error: 'in_addr_t' does not name a type; did you mean 'daddr_t'?
+   34 | extern in_addr_t inet_addr (const char *__cp) __THROW;
+      |        ^~~~~~~~~
+      |        daddr_t
+/usr/include/arpa/inet.h:37:8: error: 'in_addr_t' does not name a type; did you mean 'daddr_t'?
+   37 | extern in_addr_t inet_lnaof (struct in_addr __in) __THROW;
+      |        ^~~~~~~~~
+      |        daddr_t
+/usr/include/arpa/inet.h:41:38: error: variable 'in_addr inet_makeaddr' has initializer but incomplete type
+   41 | extern struct in_addr inet_makeaddr (in_addr_t __net, in_addr_t __host)
+      |                                      ^~~~~~~~~
+/usr/include/arpa/inet.h:41:38: error: 'in_addr_t' was not declared in this scope; did you mean 'in_addr'?
+   41 | extern struct in_addr inet_makeaddr (in_addr_t __net, in_addr_t __host)
+      |                                      ^~~~~~~~~
+      |                                      in_addr
+/usr/include/arpa/inet.h:41:55: error: 'in_addr_t' was not declared in this scope; did you mean 'in_addr'?
+   41 | extern struct in_addr inet_makeaddr (in_addr_t __net, in_addr_t __host)
+      |                                                       ^~~~~~~~~
+      |                                                       in_addr
+/usr/include/arpa/inet.h:42:6: error: expected ',' or ';' before 'noexcept'
+   42 |      __THROW;
+      |      ^~~~~~~
+/usr/include/arpa/inet.h:45:8: error: 'in_addr_t' does not name a type; did you mean 'in_addr'?
+   45 | extern in_addr_t inet_netof (struct in_addr __in) __THROW;
+      |        ^~~~~~~~~
+      |        in_addr
+/usr/include/arpa/inet.h:49:8: error: 'in_addr_t' does not name a type; did you mean 'in_addr'?
+   49 | extern in_addr_t inet_network (const char *__cp) __THROW;
+      |        ^~~~~~~~~
+      |        in_addr
+/usr/include/arpa/inet.h:77:25: error: 'in_addr_t' was not declared in this scope; did you mean 'in_addr'?
+   77 | extern char *inet_neta (in_addr_t __net, char *__buf, size_t __len) __THROW
+      |                         ^~~~~~~~~
+      |                         in_addr
+/usr/include/arpa/inet.h:77:42: error: expected primary-expression before 'char'
+   77 | extern char *inet_neta (in_addr_t __net, char *__buf, size_t __len) __THROW
+      |                                          ^~~~
+/usr/include/arpa/inet.h:77:62: error: expected primary-expression before '__len'
+   77 | extern char *inet_neta (in_addr_t __net, char *__buf, size_t __len) __THROW
+      |                                                              ^~~~~
+/usr/include/arpa/inet.h:77:67: error: expression list treated as compound expression in initializer [-fpermissive]
+   77 | extern char *inet_neta (in_addr_t __net, char *__buf, size_t __len) __THROW
+      |                                                                   ^
+InetAddress.h:15:36: error: 'sockaddr_in' does not name a type; did you mean 'sockaddr'?
+   15 |         explicit InetAddress(const sockaddr_in& addr);
+      |                                    ^~~~~~~~~~~
+      |                                    sockaddr
+InetAddress.h:23:15: error: 'sockaddr_in' does not name a type; did you mean 'sockaddr'?
+   23 |         const sockaddr_in getSockAddr() const {return addr_;}
+      |               ^~~~~~~~~~~
+      |               sockaddr
+InetAddress.h:24:32: error: 'sockaddr_in' does not name a type; did you mean 'sockaddr'?
+   24 |         void setSockAddr(const sockaddr_in& addr) {addr_=addr;}
+      |                                ^~~~~~~~~~~
+      |                                sockaddr
+InetAddress.h:27:9: error: 'sockaddr_in' does not name a type; did you mean 'sockaddr'?
+   27 |         sockaddr_in addr_;
+      |         ^~~~~~~~~~~
+      |         sockaddr
+InetAddress.h: In member function 'void InetAddress::setSockAddr(const int&)':
+InetAddress.h:24:52: error: 'addr_' was not declared in this scope; did you mean 'addr'?
+   24 |         void setSockAddr(const sockaddr_in& addr) {addr_=addr;}
+      |                                                    ^~~~~
+      |                                                    addr
+Socket.cc: In member function 'void Socket::bindAddress(const InetAddress&)':
+Socket.cc:26:43: error: 'const class InetAddress' has no member named 'getSockAddr'; did you mean 'setSockAddr'?
+   26 |         if(0 != ::bind(sockfd_, localAddr.getSockAddr(), sizeof(sockaddr_in)))
+      |                                           ^~~~~~~~~~~
+      |                                           setSockAddr
+Socket.cc:26:65: error: 'sockaddr_in' was not declared in this scope; did you mean 'sockaddr'?
+   26 |         if(0 != ::bind(sockfd_, localAddr.getSockAddr(), sizeof(sockaddr_in)))
+      |                                                                 ^~~~~~~~~~~
+      |                                                                 sockaddr
+Socket.cc: In member function 'int Socket::accept(InetAddress*)':
+Socket.cc:40:9: error: 'sockaddr_in' was not declared in this scope; did you mean 'sockaddr'?
+   40 |         sockaddr_in addr;
+      |         ^~~~~~~~~~~
+      |         sockaddr
+Socket.cc:41:32: error: 'addr' was not declared in this scope
+   41 |         socklen_t len = sizeof(addr);
+      |                                ^~~~
+In file included from /usr/include/arpa/inet.h:22:
+Socket.cc: In member function 'void Socket::setTcpNoDelay(bool)':
+Socket.cc:63:31: error: 'IPPROTO_TCP' was not declared in this scope
+   63 |         ::setsockopt(sockfd_, IPPROTO_TCP, TCP_NODELAY, &optval, sizeof(optval));
+      |                               ^~~~~~~~~~~
+❌ Build failed!
