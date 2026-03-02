@@ -1,33 +1,22 @@
 #!/bin/bash
 # build_test.sh
-# 编译Echo服务器测试程序
 
 echo "=== Building Echo Server Test ==="
 
-# 设置编译器
 CXX=g++
-CXXFLAGS="-std=c++11 -g -O0 -Wall -Wextra -pthread"
+CXXFLAGS="-std=c++11 -Wall -Wextra -g -O0 -pthread"
+SOURCES="echo_server_test.cc"
 
-# 源文件列表
-SOURCES="
-    echo_server_test.cc
-    Acceptor.cc
-    Channel.cc
-    EPollPoller.cc
-    EventLoop.cc
-    EventLoopThread.cc
-    EventLoopThreadPool.cc
-    Poller.cc
-    TcpConnection.cc
-    TcpServer.cc
-    Buffer.cc
-    InetAddress.cc
-    Socket.cc
-    Thread.cc
-    CurrentThread.cc
-"
+# 编译所有 .cc 文件
+for file in *.cc; do
+    if [ "$file" != "echo_server_test.cc" ]; then
+        SOURCES="$SOURCES $file"
+    fi
+done
 
-# 编译命令
+echo "Compiling: $SOURCES"
+
+# 编译
 $CXX $CXXFLAGS -o echo_server_test $SOURCES
 
 if [ $? -eq 0 ]; then

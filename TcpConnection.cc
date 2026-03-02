@@ -34,7 +34,7 @@ TcpConnection::TcpConnection(EventLoop* loop,const std::string& nameArg,int sock
 	 peerAddr_(peerAddr),
 	 highWaterMark_(64*1024*1024)	//64M
 {
-	channel_->setReadCallback(std::bind(&TcpConnection::handleRead,this,std::placeholeders::_1));
+	channel_->setReadCallback(std::bind(&TcpConnection::handleRead,this,std::placeholders::_1));
 	channel_->setWriteCallback(std::bind(&TcpConnection::handleWrite,this));
 	channel_->setErrorCallback(std::bind(&TcpConnection::handleError,this));
 	channel_->setCloseCallback(std::bind(&TcpConnection::handleClose,this));
@@ -72,7 +72,7 @@ void TcpConnection::handleRead(std::chrono::steady_clock::time_point receiveTime
 	
 	if(n>0)
 	{
-		messageCallback_(shared_from_this(),&inputBuffer,receiveTime);
+		messageCallback_(shared_from_this(),&inputBuffer_,receiveTime);
 	}
 	else if(n==0)
 	{
@@ -126,7 +126,7 @@ void TcpConnection::handleWrite()
 				channel_->disableWriting();
 				if(writeCompleteCallback_)
 				{
-					loop_->queueInLoop(std::bind(&writeCompleteCallback_,shared_from_this()));
+					loop_->queueInLoop(std::bind(writeCompleteCallback_,shared_from_this()));
 				}
 			
 				if(state_ == KDisconnecting)
@@ -175,7 +175,7 @@ void TcpConnection::sendInLoop(const void* data,size_t len)
 			remaining = len-nwrote;
 			if(remaining==0 && writeCompleteCallback_)
 			{
-				loop_->queueInLoop(std::bind(writeCompleteCallback_,shared_from_this()));
+				loop_->queueInLoop(std::bind(&TcpConnection::writeCompleteCallback_,shared_from_this()));
 			}
 		}
 		else

@@ -4,6 +4,7 @@
 
 Poller* Poller::newDefaultPoller(EventLoop* loop)
 {
+	/*
 	if(::getenv("MUDUO_USE_POLL"))
 	{
 		return nullptr;
@@ -12,4 +13,7 @@ Poller* Poller::newDefaultPoller(EventLoop* loop)
 	{
 		return new EPollPoller(loop);
 	}
+	*/
+
+	return new EPollPoller(loop);
 }
