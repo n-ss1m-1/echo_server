@@ -17,7 +17,7 @@ class Socket;
 class TcpConnection : private noncopyable, public std::enable_shared_from_this<TcpConnection>
 {
 public:
-	TcpConnection(Eventloop* loop, const std::string& nameArg, int sockfd, const InetAddress& localAddr, const InetAddress& peerAddr);
+	TcpConnection(EventLoop* loop, const std::string& nameArg, int sockfd, const InetAddress& localAddr, const InetAddress& peerAddr);
 	~TcpConnection();
 
 	void connectEstablished();

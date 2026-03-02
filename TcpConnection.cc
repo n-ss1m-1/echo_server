@@ -1,12 +1,12 @@
 #include<functional>
 #include<string>
 #include<errno.h>
-//#include<sys/types.h>
-//#include<sys/socket.h>
-//#include<netinet/tcp.h>
-//#include<sys/sendfile.h>
-//#include<fcntl.h>
-//#include<unistd.h>
+#include<sys/types.h>		//系统类型定义
+#include<sys/socket.h>		//socket API
+#include<netinet/tcp.h>		//TCP选项
+#include<sys/sendfile.h>	//sendfile系统调用
+#include<fcntl.h>		//文件控制选项
+#include<unistd.h>		//read write close等
 
 #include "TcpConnection.h"
 #include "EventLoop.h"
@@ -49,8 +49,8 @@ TcpConnection::~TcpConnection()
 void TcpConnection::connectEstablished()
 {
 	setState(KConnected);
-	channel->tie(shared_from_this());
-	channel->enableReading();
+	channel_->tie(shared_from_this());
+	channel_->enableReading();
 
 	connectionCallback_(shared_from_this());
 }
@@ -58,7 +58,7 @@ void TcpConnection::connectDestroyed()
 {
 	if(state_==KConnected)
 	{
-		setState(KDisConnected);
+		setState(KDisconnected);
 		channel_->disableAll();
 		connectionCallback_(shared_from_this());
 	}
@@ -67,7 +67,7 @@ void TcpConnection::connectDestroyed()
 void TcpConnection::handleRead(std::chrono::steady_clock::time_point receiveTime)
 {
 	int saveErrno=0;
-	ssize_t n = inputBuffer.readFd(channel->fd(),&saveErrno);
+	ssize_t n = inputBuffer.readFd(channel_->fd(),&saveErrno);
 	
 	if(n>0)
 	{
@@ -116,10 +116,10 @@ void TcpConnection::handleWrite()
 	if(channel_->isWriting())
 	{
 		int saveErrno = 0;
-		int n= outputBuffer_.writeFd(channel_.fd(),&saveErrno);
+		int n= outputBuffer_.writeFd(channel_->fd(),&saveErrno);
 		if(n>0)
 		{
-			outputBuffer.retrieve(n);
+			outputBuffer_.retrieve(n);
 			if(outputBuffer.readableBytes()==0)
 			{
 				channel_->disableWriting();
@@ -150,8 +150,8 @@ void TcpConnection::send(const std::string& buf)
 {
 	if(state_==KConnected)
 	{
-		if(loop_->isInLoopThread())	sendInLoop(buf.c_str(),sizeof(buf));
-		else	std::bind(&TcpConnection::sendInLoop,this,buf.c_str(),sizeof(buf));
+		if(loop_->isInLoopThread())	sendInLoop(buf.c_str(),buf.size());
+		else	loop_->runInLoop(std::bind(&TcpConnection::sendInLoop,this,buf.c_str(),buf.size()));
 	}
 }
 void TcpConnection::sendInLoop(const void* data,size_t len)
@@ -172,7 +172,7 @@ void TcpConnection::sendInLoop(const void* data,size_t len)
 		if(nwrote>=0)
 		{
 			remaining = len-nwrote;
-			if(remaining==0 &&& writeCompleteCallback_)
+			if(remaining==0 && writeCompleteCallback_)
 			{
 				loop_->queueInLoop(std::bind(writeCompleteCallback_,shared_from_this()));
 			}

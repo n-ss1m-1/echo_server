@@ -11,7 +11,7 @@
 
 static int createNonblocking()
 {
-	int sockfd = ::socket(AF_INET, SOCK_STREAM|SOCK_NONBLOCK|SOCK_CLOEXEC|, IPPROTO_TCP);
+	int sockfd = ::socket(AF_INET, SOCK_STREAM|SOCK_NONBLOCK|SOCK_CLOEXEC, IPPROTO_TCP);
 	if(sockfd<0)
 	{
 
@@ -21,7 +21,7 @@ static int createNonblocking()
 
 Acceptor::Acceptor(EventLoop* loop, const InetAddress& listenAddr, bool reusePort):
 	loop_(loop),
-	acceptorSocket_(createNonBlocking()),
+	acceptorSocket_(createNonblocking()),
 	acceptorChannel_(loop, acceptorSocket_.fd()),
 	listening_(false)
 {
@@ -46,7 +46,7 @@ void Acceptor::listen()
 void Acceptor::handleRead()
 {
 	InetAddress peerAddr;
-	int connfd = acceptorSocket.accept(&peerAddr);
+	int connfd = acceptorSocket_.accept(&peerAddr);
 	if(connfd >=0)
 	{
 		if(NewConnectionCallback_)
