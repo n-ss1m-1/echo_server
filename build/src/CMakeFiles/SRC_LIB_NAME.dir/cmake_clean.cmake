@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "/home/linuxprobe/CODE/muduo/lib/libSRC_LIB_NAME.a"
+  "/home/linuxprobe/CODE/muduo/lib/libSRC_LIB_NAME.pdb"
+  "CMakeFiles/SRC_LIB_NAME.dir/Acceptor.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/Acceptor.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/Buffer.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/Buffer.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/Channel.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/Channel.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/CurrentThread.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/CurrentThread.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/DefaultPoller.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/DefaultPoller.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/EPollPoller.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/EPollPoller.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/EventLoop.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/EventLoop.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/EventLoopThread.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/EventLoopThread.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/EventLoopThreadPool.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/EventLoopThreadPool.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/InetAddress.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/InetAddress.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/Poller.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/Poller.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/Socket.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/Socket.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/TcpConnection.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/TcpConnection.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/TcpServer.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/TcpServer.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/Thread.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/Thread.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/Timestamp.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/Timestamp.cc.o.d"
+  "CMakeFiles/SRC_LIB_NAME.dir/main.cc.o"
+  "CMakeFiles/SRC_LIB_NAME.dir/main.cc.o.d"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/SRC_LIB_NAME.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "/home/linuxprobe/CODE/muduo/lib/libsrc.pdb"
+  "/home/linuxprobe/CODE/muduo/lib/libsrc.so"
+  "CMakeFiles/src.dir/Acceptor.cc.o"
+  "CMakeFiles/src.dir/Acceptor.cc.o.d"
+  "CMakeFiles/src.dir/Buffer.cc.o"
+  "CMakeFiles/src.dir/Buffer.cc.o.d"
+  "CMakeFiles/src.dir/Channel.cc.o"
+  "CMakeFiles/src.dir/Channel.cc.o.d"
+  "CMakeFiles/src.dir/CurrentThread.cc.o"
+  "CMakeFiles/src.dir/CurrentThread.cc.o.d"
+  "CMakeFiles/src.dir/DefaultPoller.cc.o"
+  "CMakeFiles/src.dir/DefaultPoller.cc.o.d"
+  "CMakeFiles/src.dir/EPollPoller.cc.o"
+  "CMakeFiles/src.dir/EPollPoller.cc.o.d"
+  "CMakeFiles/src.dir/EventLoop.cc.o"
+  "CMakeFiles/src.dir/EventLoop.cc.o.d"
+  "CMakeFiles/src.dir/EventLoopThread.cc.o"
+  "CMakeFiles/src.dir/EventLoopThread.cc.o.d"
+  "CMakeFiles/src.dir/EventLoopThreadPool.cc.o"
+  "CMakeFiles/src.dir/EventLoopThreadPool.cc.o.d"
+  "CMakeFiles/src.dir/InetAddress.cc.o"
+  "CMakeFiles/src.dir/InetAddress.cc.o.d"
+  "CMakeFiles/src.dir/Poller.cc.o"
+  "CMakeFiles/src.dir/Poller.cc.o.d"
+  "CMakeFiles/src.dir/Socket.cc.o"
+  "CMakeFiles/src.dir/Socket.cc.o.d"
+  "CMakeFiles/src.dir/TcpConnection.cc.o"
+  "CMakeFiles/src.dir/TcpConnection.cc.o.d"
+  "CMakeFiles/src.dir/TcpServer.cc.o"
+  "CMakeFiles/src.dir/TcpServer.cc.o.d"
+  "CMakeFiles/src.dir/Thread.cc.o"
+  "CMakeFiles/src.dir/Thread.cc.o.d"
+  "CMakeFiles/src.dir/Timestamp.cc.o"
+  "CMakeFiles/src.dir/Timestamp.cc.o.d"
+  "CMakeFiles/src.dir/main.cc.o"
+  "CMakeFiles/src.dir/main.cc.o.d"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/src.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
